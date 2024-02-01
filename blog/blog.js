@@ -26,7 +26,11 @@ function reload_page(){
 }
 
 window.addEventListener('locationchange', function () {
-    reload_page();
+    alert("locationchange");
+});
+
+window.addEventListener('popstate', function () {
+    alert("popstate");
 });
 
 reload_page()
