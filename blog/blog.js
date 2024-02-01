@@ -13,7 +13,7 @@ if(url.includes("#!")){
 }
 else{
     // show blog list of posts
-    markdown_to_fetch = blog_url + "postlist.md";
+    markdown_to_fetch = blog_url + "posts/postlist.md";
 }
 
 var md = window.markdownit(); 
