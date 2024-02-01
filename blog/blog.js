@@ -18,7 +18,7 @@ else{
 
 var md = window.markdownit(); 
 
-fetch(url)
+fetch(markdown_to_fetch)
 .then((response) => response.text())
 .then((text) => {
     document.getElementById('post').innerHTML = md.render(text);
