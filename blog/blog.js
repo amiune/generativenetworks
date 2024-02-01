@@ -29,7 +29,6 @@ function reload_page(){
 }
 
 window.addEventListener('popstate', function (event) {
-    alert('popstate');
     reload_page();
 });
 
