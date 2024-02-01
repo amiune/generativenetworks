@@ -16,10 +16,18 @@ else{
     markdown_to_fetch = blog_url + "postlist.md";
 }
 
-var md = window.markdownit(); 
+function reload_page(){
+    var md = window.markdownit(); 
+    fetch(markdown_to_fetch)
+    .then((response) => response.text())
+    .then((text) => {
+        document.getElementById('post').innerHTML = md.render(text);
+    })
+}
 
-fetch(markdown_to_fetch)
-.then((response) => response.text())
-.then((text) => {
-    document.getElementById('post').innerHTML = md.render(text);
-})
+window.addEventListener('locationchange', function () {
+    reload_page();
+});
+
+reload_page()
+
