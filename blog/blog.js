@@ -9,11 +9,11 @@ markdown_to_fetch = "";
 if(url.includes("#!")){
     // show blog post
     post_name = url.split("#!")[1];
-    markdown_to_fetch = blog_url + post_name + ".md";
+    markdown_to_fetch = blog_url + "posts/" + post_name + ".md";
 }
 else{
     // show blog list of posts
-    markdown_to_fetch = blog_url + "posts/postlist.md";
+    markdown_to_fetch = blog_url + "postlist.md";
 }
 
 var md = window.markdownit(); 
