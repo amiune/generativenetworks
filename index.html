@@ -1,247 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Generative Networks</title>
+    <meta
+      name="description"
+      content="Generative Networks"
+    />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+    <link rel="stylesheet" href="custom.css" />
+  </head>
 
-	<title>Generative Networks</title>
+  <body>
+    <!-- Hero -->
+    <div class="hero" data-theme="dark">
+      <nav class="container-fluid">
+        <ul>
+          <li>
+            <a href="./" class="contrast" onclick="event.preventDefault()"><strong>GN</strong></a>
+          </li>
+        </ul>
+        <ul>
+          <li><a href="blog/blog.html" class="contrast">Blog</a></li>
+          <li>
+            <details role="list" dir="rtl">
+              <summary aria-haspopup="listbox" role="link" class="contrast">Tema</summary>
+              <ul role="listbox">
+                <li><a href="#" data-theme-switcher="light">Claro</a></li>
+                <li><a href="#" data-theme-switcher="dark">Oscuro</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </nav>
 
-	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
-	<link rel="stylesheet" type="text/css" href="assets/css/bundle.css" />
-</head>
-<body>
-	<div class="wrapper">
-		<header class="header">
-			<a href="#" class="logo animate" style="background-image: url(assets/images/logo.svg);"></a>
-			
-			<nav class="nav animate">
-				<a href="#" class="btn-back">
-					<i class="ico-back"></i>
-					Back
-				</a>
+      <header class="container">
+        <hgroup>
+          <h1>Generative Networks</h1>
+          <p>Consultoria y Formacion en Inteligencia Artificial y Machine Learning</p>
+        </hgroup>
+        <p><a href="#contactanos" role="button">Contactanos</a></p>
+      </header>
+    </div>
+    <!-- ./ Hero -->
 
-				<ul>
-					<li style="transition-delay: .2s">
-						<a href="https://www.freecodingtour.com/">cursos gratuitos</a>
-					</li>
-					<li style="transition-delay: .2s">
-						<a href="#footer">contactanos</a>
-					</li>
-				</ul>
-			</nav><!-- /.nav -->
-			
-		</header><!-- /.header -->
-		
+    <!-- Main -->
+    <main class="container">
+        <section>
+          <hgroup>
+            <h2>Experiencia</h2>
+            <p>Design & Deploy</p>
+          </hgroup>
+          <p>
+            Con una amplia experiencia en programacion y desarrollo de software, combinado con una solida base teorica en Inteligencia Artificial y Machine Learning contamos con mas de veinte años de experiencia ayudando a empresas a implementar soluciones de Inteligencia Artificial.
+            Ingresa a nuestro <a href="blog/blog.html">Blog</a>
+          </p>
 
+          <h3>Equipo</h3>
+          <p>
+            Somos un equipo de especialistas en la implementacion de Inteligencia Artificial en distintas areas como Economia, Bioingenieria, Marketing que nos dedicamos a la investigacion y la consultoria para empresas.
+            <ul>
+              <li>Hernan Amiune Machine Learning Expert (<a href="">Linkedin</a>)</li>
+              <li>Samuel Kaplan Economics and Forecasting Expert (<a href="">Linkedin</a>)</li>
+              </ul> 
+          
+          </p>
+          <h3>Que Hacemos?</h3>
+          <p>
+            Te ayudamos:
+            <ul>
+            <li>A realizar proyectos pilotos de IA</li>
+            <li>Crear un equipo propio de IA</li>
+            <li>Capacitarte en IA</li>
+            <li>Desarrollar tu estrategia de IA</li>
+            <li>Desarrollar la comunicacion interna y externa</li>
+            </ul> 
+          </p>
+        </section>
+    </main>
+    <!-- ./ Main -->
 
-		<div class="intro">
-			<div class="intro__image" style="background-image: url(assets/images/temp/hero-image.jpg);"></div><!-- /.intro__image -->
+    <!-- Subscribe -->
+    <section id="contactanos" aria-label="Contactanos">
+      <div class="container">
+        <article>
+          <hgroup>
+            <h2>Contactanos</h2>
+            <p>Litora torquent per conubia nostra</p>
+          </hgroup>
+          <form action="https://formspree.io/f/xwkglvnl" method="POST">
+            <input
+              type="text"
+              id="firstname"
+              name="firstname"
+              placeholder="First name"
+              aria-label="First name"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email address"
+              aria-label="Email address"
+              required
+            />
+            <textarea
+            id="message"
+            name="message"
+            placeholder="Mensaje"
+            aria-label="Mensaje"
+            required
+            ></textarea>
+            <button type="submit">Subscribe</button>
+          </form>
+        </article>
+      </div>
+    </section>
+    <!-- ./ Subscribe -->
 
-			<div class="intro__content">
-				<h1 class="animate animate-bottom">Consultoria y Formacion en Inteligencia Artificial y Machine Learning</h1>
+    <!-- Footer -->
+    <footer class="container">
+      <small>Generative Networks</small>
+    </footer>
+    <!-- ./ Footer -->
 
-			</div><!-- /.intro__content -->
-
-			<div class="intro__actions">
-				<a href="#section-1" class="btn-scroll-down"></a>
-			</div><!-- /.intro__actions -->
-		</div><!-- /.intro -->
-
-		<div class="main">
-			<section class="section" id="section-1">
-				<div class="shell">
-					<div class="section__entry">
-						<div class="tiles">
-							<div class="tiles__inner">
-								<div class="tile animate animate-top-left">
-									<div class="tile__image">
-										<img src="assets/images/temp/tile-image-1.png" alt="" width="56">
-									</div><!-- /.tile__image -->
-
-									<div class="tile__content">
-										<h3>background</h3>
-										<p>
-											Con una amplia experiencia en programacion y desarrollo 
-											de software, combinado con una solida base teorica en Inteligencia Artificial y
-											Machine Learning contamos con mas de veinte años de experiencia ayudando a 
-											empresas a implementar soluciones de Inteligencia Artificial.
-										</p>
-									</div><!-- /.tile__content -->
-								</div><!-- /.tile -->
-
-								<div class="tile animate animate-bottom-right">
-									<div class="tile__image">
-										<img src="assets/images/temp/tile-image-2.png" alt="" width="39">
-									</div><!-- /.tile__image -->
-
-									<div class="tile__content">
-										<h3>Equipo</h3>
-										<p>
-											Somos un equipo de especialistas en la implementacion de Inteligencia Artificial
-											en distintas areas como Economia, Bioingenieria, Marketing que nos dedicamos a la
-											investigacion y la consultoria para empresas.
-										</p>
-									</div><!-- /.tile__content -->
-								</div><!-- /.tile -->
-								
-								<div class="tile animate animate-bottom-left">
-									<div class="tile__image">
-										<img src="assets/images/temp/what.png" alt="" width="39">
-									</div><!-- /.tile__image -->
-
-									<div class="tile__content">
-										<h3>Que hacemos?</h3>
-
-										<p>
-										Te ayudamos:
-										<ol style="left-margin:20px">
-										<li>A realizar proyectos pilotos de IA</li>
-										<li>Crear un equipo propio de IA</li>
-										<li>Capacitarte en IA</li>
-										<li>Desarrollar tu estrategia de IA</li>
-										<li>Desarrollar la comunicacion interna y externa</li>
-										</ol>
-										</p>
-									</div><!-- /.tile__content -->
-								</div><!-- /.tile -->
-
-
-							</div><!-- /.tiles__inner -->
-
-
-							<div class="time-line">
-								<span></span>
-							</div><!-- /.time-line -->
-						</div><!-- /.tiles -->
-					</div><!-- /.section__entry -->
-				</div><!-- /.shell -->
-			</section><!-- /.section -->
-
-			<section class="section-slider">
-				<header class="section-slider__head">
-					<h2 class="section-slider__title animate animate-bottom">meet our members</h2>
-				</header><!-- /.section-slider__head -->
-
-				<div class="section-slider__body">
-					<div class="slider">
-						<div class="slider__arrows">
-							<div class="slider__arrow slider__arrow--left">
-								<a href="#"></a>
-							</div><!-- /.slider__arrow-left -->
-
-							<div class="slider__arrow slider__arrow--right">
-								<a href="#"></a>
-							</div><!-- /.slider__arrow-left -->
-						</div><!-- /.slider__arrows -->
-
-						<div class="slider__clip">
-							<div class="slider__slides">
-								
-								
-								
-								<div class="slider__slide">
-									<div class="slider__slide-inner">
-										<div class="slider__slide-content">
-											<figure>
-												<img src="assets/images/temp/foto-samuel.jpg" alt="">
-											</figure>
-											<h4>Samuel Kaplan</h4>
-
-											<span>Economics Expert</span>
-
-											<div class="slider__slide-actions">
-												<a href="https://www.linkedin.com/in/samuel-kaplan-46386a5/" target="_blank">LinkedIn</a>
-											</div><!-- /.slider__slide-actions -->
-										</div><!-- /.slider__slide-content -->
-									</div><!-- /.slider__slide-inner -->
-								</div><!-- /.slider__slide -->
-								
-								
-								<div class="slider__slide">
-									<div class="slider__slide-inner">
-										<div class="slider__slide-content">
-											<figure>
-												<img src="assets/images/temp/foto-hernan.jpg" alt="">
-											</figure>
-											<h4>Hernán Amiune</h4>
-
-											<span>Machine Learning Expert</span>
-
-											<div class="slider__slide-actions">
-												<a href="https://www.linkedin.com/in/hern%C3%A1n-amiune-a59b93164/" target="_blank">LinkedIn</a>
-
-												<a href="https://www.topcoder.com/members/amiune" target="_blank">Skills</a>
-											</div><!-- /.slider__slide-actions -->
-										</div><!-- /.slider__slide-content -->
-									</div><!-- /.slider__slide-inner -->
-								</div><!-- /.slider__slide -->
-
-								
-
-								<div class="slider__slide">
-									<div class="slider__slide-inner">
-										<div class="slider__slide-content">
-											<figure>
-												<img src="assets/images/temp/foto-elmer.jpg" alt="">
-											</figure>
-											<h4>Elmer Fernández</h4>
-
-											<span>PhD Bioinformatics</span>
-
-											<div class="slider__slide-actions">
-												<a href="https://www.linkedin.com/in/elmer-fern%C3%A1ndez-3218b94/" target="_blank">LinkedIn</a>
-
-												<a href="https://www.researchgate.net/profile/Elmer_Fernandez" target="_blank">Publications</a>
-											</div><!-- /.slider__slide-actions -->
-										</div><!-- /.slider__slide-content -->
-									</div><!-- /.slider__slide-inner -->
-								</div><!-- /.slider__slide -->
-
-								<div class="slider__slide">
-									<div class="slider__slide-inner">
-										<div class="slider__slide-content">
-											<figure>
-												<img src="assets/images/temp/foto-marcela.jpg" alt="">
-											</figure>
-											<h4>Marcela Amiune</h4>
-
-											<span>Marketing Expert</span>
-
-											<div class="slider__slide-actions">
-												<a href="https://www.linkedin.com/in/marcelaamiune/" target="_blank">LinkedIn</a>
-											</div><!-- /.slider__slide-actions -->
-										</div><!-- /.slider__slide-content -->
-									</div><!-- /.slider__slide-inner -->
-								</div><!-- /.slider__slide -->
-							</div><!-- /.slider__slides -->
-						</div><!-- /.slider__clip -->
-					</div><!-- /.slider -->
-				</div><!-- /.section-slider__body -->
-			</section><!-- /.section-slider -->
-		</div><!-- /.main -->
-		<footer class="footer" id="footer">
-			<div class="shell">
-				<div class="footer__entry">
-					<a href="#" class="logo-footer" style="background-image: url(assets/images/logo-footer.png);"></a>
-
-					<div class="copyright">
-					    <p>
-							<span id="email"> info@xgenerativenetworks.com </spam>
-							<br/>
-							San Luis 145, Cordoba, Argentina
-							<br/>
-							2018© Generative Networks
-						</p>
-					</div><!-- /.copyright -->
-				</div><!-- /.footer__entry -->
-			</div><!-- /.shell -->
-		</footer><!-- /.footer -->
-	</div><!-- /.wrapper -->
-
-	<script src="assets/vendor/jquery-3.1.1.min.js"></script>
-    <script src="assets/js/bundle.js"></script>
-	<script>
-	document.getElementById("email").innerHTML = document.getElementById("email").innerHTML.replace("x","");
-	</script>
-</body>
+    <!-- Minimal theme switcher -->
+    <script src="js/minimal-theme-switcher.js"></script>
+  </body>
 </html>
