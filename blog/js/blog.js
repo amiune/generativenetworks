@@ -53,8 +53,12 @@ function reload_page(){
                         list.appendChild(li);
                     }
                 }
-                document.getElementById('title').innerHTML = "<h1>Generative Networks Blog</h1>";
-                document.getElementById('content').innerHTML = list.innerHTML;
+                let div = document.createElement('div');
+                let h1 = document.createElement('h1');
+                h1.innerText = "Generative Networks Blog";
+                div.appendChild(h1);
+                div.appendChild(list);
+                document.getElementById('content').innerHTML = div.innerHTML;
             });
     }
         
