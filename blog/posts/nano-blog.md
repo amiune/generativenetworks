@@ -3,7 +3,7 @@
 Minimal javascript ajax blog for github pages using markdown for posts.
 
 The goals of nano blog are:
-- Easy to install (just copy some files and modify 2 URLs)
+- Easy to deploy (no installation or builds)
 - Work with Github pages (free to host)
 - Create the posts using markdown
 - Can edit the posts using github web or app or your fav markdown editor
@@ -12,7 +12,7 @@ It consists of one html page and the following js script:
 
 ```javascript
 
-const BLOG_URL = "YOUR_BLOG_URL";
+const BLOG_URL = "YOUR_BLOG_URL"; 
 const REPO_ADDRESS = "YOUR_GITHUB_REPOSITORY_ADDRESS"; // example: "amiune/nano-blog";
 
 function make_title(slug) {

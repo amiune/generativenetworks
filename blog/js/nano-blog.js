@@ -4,13 +4,13 @@
  * using markdown for posts
  *
  * Developer: Hernan Amiune
- * Copyright - Licensed under MIT
+ * Licensed under MIT
  */
 
 const BLOG_URL = "https://www.generativenetworks.com/blog/";
 const REPO_ADDRESS = "amiune/generativenetworks";
 
-function make_title(slug) {
+function slug_to_title(slug) {
     var words = slug.split('-');
     for (var i = 0; i < words.length; i++) {
       var word = words[i];
@@ -31,22 +31,15 @@ function reload_page(){
 
         var md = window.markdownit(); 
 
-        fetch(markdown_to_fetch)
-            .then(async (response) => {
-                if (response.ok) {
-                    text = await response.text()
-                    document.getElementById('content').innerHTML = md.render(text);
-                }
-                else{
-                    document.getElementById('content').innerHTML = md.render("# 404: Page not found");
-                }
-            })
-
-        // fetch(markdown_to_fetch)
-        // .then((response) => response.text())
-        // .then((text) => {
-        //     document.getElementById('content').innerHTML = md.render(text);
-        // })
+        fetch(markdown_to_fetch).then(async (response) => {
+            if (response.ok) {
+                text = await response.text()
+                document.getElementById('content').innerHTML = md.render(text);
+            }
+            else{
+                document.getElementById('content').innerHTML = md.render("# 404: Page not found");
+            }
+        })
     }
     else{
         // show blog list of posts
@@ -62,10 +55,10 @@ function reload_page(){
                     if(element.path.includes("posts/")){
                         let li = document.createElement('li');
                         let file_name = element.path.split("posts/")[1];
-                        let post_name = file_name.replace(".md","");
+                        let slug = file_name.replace(".md","");
                         let a = document.createElement('a');
-                        a.innerText = make_title(post_name);
-                        a.setAttribute("href", BLOG_URL + "#!" + post_name)
+                        a.innerText = slug_to_title(slug);
+                        a.setAttribute("href", BLOG_URL + "#!" + slug)
                         li.appendChild(a);
                         list.appendChild(li);
                     }
