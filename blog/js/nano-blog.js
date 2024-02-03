@@ -30,20 +30,31 @@ function reload_page(){
         markdown_to_fetch = BLOG_URL + "posts/" + post_name + ".md";
 
         var md = window.markdownit(); 
+
         fetch(markdown_to_fetch)
-        .then((response) => response.text())
-        .then((text) => {
-            document.getElementById('content').innerHTML = md.render(text);
-        })
+            .then(async (response) => {
+                if (response.ok) {
+                    text = await response.text()
+                    document.getElementById('content').innerHTML = md.render(text);
+                }
+                else{
+                    document.getElementById('content').innerHTML = md.render("# 404: Page not found");
+                }
+            })
+
+        // fetch(markdown_to_fetch)
+        // .then((response) => response.text())
+        // .then((text) => {
+        //     document.getElementById('content').innerHTML = md.render(text);
+        // })
     }
     else{
         // show blog list of posts
         url = "https://api.github.com/repos/" + REPO_ADDRESS + "/git/trees/main?recursive=1";
         fetch(url)
-            .then((response) => response.text())
-            .then((text) => {
-                const r = JSON.parse(text);
-                files_list = r.tree;
+            .then((response) => response.json())
+            .then((json_response) => {
+                files_list = json_response.tree;
                 let list = document.createElement("ul");
                 // show posts from oldest to newest
                 for (let i = files_list.length - 1; i >= 0; i--) {
