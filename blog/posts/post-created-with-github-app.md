@@ -1,3 +1,3 @@
-# este es un nuevo post
+# Post Created with Github App
 
-fue creado con la app de github desde el celu
+This post was created with the github app from the cellphone
