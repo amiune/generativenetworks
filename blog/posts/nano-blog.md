@@ -1,14 +1,19 @@
-/*!
- * Nano Blog
- * Minimal javascript ajax blog for github pages
- * using markdown for posts
- *
- * Developer: Hernan Amiune
- * Copyright - Licensed under MIT
- */
+# Nano Blog
 
-const BLOG_URL = "https://www.generativenetworks.com/blog/";
-const REPO_ADDRESS = "amiune/generativenetworks";
+Minimal javascript ajax blog for github pages using markdown for posts.
+
+The goals of nano blog are:
+- Easy to install (just copy some files and modify 2 URLs)
+- Work with Github pages (free to host)
+- Create the posts using markdown
+- Can edit the posts using github web or app or your fav markdown editor
+
+It consists of one html page and the following js script:
+
+```javascript
+
+const BLOG_URL = "YOUR_BLOG_URL";
+const REPO_ADDRESS = "YOUR_GITHUB_REPOSITORY_ADDRESS"; // example: "amiune/nano-blog";
 
 function make_title(slug) {
     var words = slug.split('-');
@@ -38,7 +43,7 @@ function reload_page(){
     }
     else{
         // show blog list of posts
-        url = "https://api.github.com/repos/" + REPO_ADDRESS + "/git/trees/main?recursive=1";
+        url = REPO_URL + "git/trees/main?recursive=1";
         fetch(url)
             .then((response) => response.text())
             .then((text) => {
@@ -77,3 +82,4 @@ window.addEventListener('popstate', function (event) {
 
 reload_page()
 
+```
