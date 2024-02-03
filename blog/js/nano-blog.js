@@ -54,7 +54,7 @@ function reload_page(){
                         let post_name = file_name.replace(".md","");
                         let a = document.createElement('a');
                         a.innerText = make_title(post_name);
-                        a.setAttribute("href", BLOG_URL + "index.html#!" + post_name)
+                        a.setAttribute("href", BLOG_URL + "#!" + post_name)
                         li.appendChild(a);
                         list.appendChild(li);
                     }
