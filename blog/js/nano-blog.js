@@ -27,16 +27,24 @@ function reload_page(){
     if(url.includes("#!")){
         // show blog post
         post_name = url.split("#!")[1];
+        post_name = post_name.replace("?","");
+        post_name = post_name.replace("#","");
         markdown_to_fetch = BLOG_URL + "posts/" + post_name + ".md";
-
-        var md = window.markdownit(); 
 
         fetch(markdown_to_fetch).then(async (response) => {
             if (response.ok) {
                 text = await response.text()
+                var md = window.markdownit();
                 document.getElementById('content').innerHTML = md.render(text);
             }
             else{
+                // Error 404
+                // https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics
+                const metaRobots = document.createElement('meta');
+                metaRobots.name = 'robots';
+                metaRobots.content = 'noindex';
+                document.head.appendChild(metaRobots);
+                var md = window.markdownit();
                 document.getElementById('content').innerHTML = md.render("# 404: Page not found");
             }
         })
