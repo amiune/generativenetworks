@@ -23,9 +23,9 @@ Un ejemplo concreto de elMejorTrato.com era que al darle al usuario la posibilid
 
 Un segundo ejemplo es la posibilidad de contestarle dudas a los usuarios que ya han sido respondidas para otros usuarios mediante el uso de las busquedas vectoriales sobre texto utilizando embeddings generados por el LLM.
 
-Para probar estas nuevas soluciones creamos un prototipo a partir de un fork de este muy buen template de docker con las siguientes adaptaciones:
+Para probar estas nuevas soluciones creamos un prototipo a partir de un [fork](https://github.com/amiune/genai-stack) de este muy buen [template](https://github.com/docker/genai-stack) de docker con las siguientes adaptaciones:
 - Prompt para que llama2 funcione correctamente en español.
-- Modelo de embedding de bert en español de la Universidad de Chile.
-- Weaviate como base de datos para poder hacer busquedas hibridas (vector, texto) y ademas poder utilizarla local o cloud.
+- Modelo de embedding de bert en español de la [Universidad de Chile](https://huggingface.co/dccuchile/bert-base-spanish-wwm-cased).
+- [Weaviate](https://weaviate.io/) como base de datos para poder hacer busquedas hibridas (vector, texto) y ademas poder utilizarla local o cloud.
 - Simplificacion del codigo para que sea más fácil entenderlo y adaptarlo a tu proyecto.
 
