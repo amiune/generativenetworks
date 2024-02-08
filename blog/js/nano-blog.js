@@ -9,11 +9,16 @@
 
 const BLOG_URL = "https://www.generativenetworks.com/blog/";
 const REPO_ADDRESS = "amiune/generativenetworks";
+const ORDER_NEW_POSTS_FIRST = true;
+
 
 function slug_to_title(slug) {
-    var words = slug.split('-');
-    for (var i = 0; i < words.length; i++) {
-      var word = words[i];
+    // The first part of the slug is used to save the date
+    // this allows to order the posts
+    slug = slug.substring(slug.indexOf("-")+1);
+    let words = slug.split('-');
+    for (let i = 0; i < words.length; i++) {
+      let word = words[i];
       words[i] = word.charAt(0).toUpperCase() + word.slice(1);
     }
     return words.join(' ');
@@ -25,16 +30,16 @@ function reload_page(){
     markdown_to_fetch = "";
 
     if(url.includes("#!")){
-        // show blog post
-        post_name = url.split("#!")[1];
-        post_name = post_name.replace("?","");
-        post_name = post_name.replace("#","");
-        markdown_to_fetch = BLOG_URL + "posts/" + post_name + ".md";
+        // Show blog post
+        slug = url.split("#!")[1];
+        slug = slug.replace("?","");
+        slug = slug.replace("#","");
+        markdown_to_fetch = BLOG_URL + "posts/" + slug + ".md";
 
         fetch(markdown_to_fetch).then(async (response) => {
             if (response.ok) {
-                text = await response.text()
-                var md = window.markdownit();
+                text = await response.text();
+                let md = window.markdownit();
                 document.getElementById('content').innerHTML = md.render(text);
             }
             else{
@@ -44,21 +49,30 @@ function reload_page(){
                 metaRobots.name = 'robots';
                 metaRobots.content = 'noindex';
                 document.head.appendChild(metaRobots);
-                var md = window.markdownit();
+                let md = window.markdownit();
                 document.getElementById('content').innerHTML = md.render("# 404: Page not found");
             }
         })
+
+        // Save pageview in google analytics
+        if (typeof gtag !== "undefined") {
+            gtag('event', 'page_view', {
+                page_title: slug_to_title(slug),
+                page_location: window.location.href
+            });
+        }
     }
     else{
-        // show blog list of posts
+        // Show blog list of posts
         url = "https://api.github.com/repos/" + REPO_ADDRESS + "/git/trees/main?recursive=1";
         fetch(url)
             .then((response) => response.json())
             .then((json_response) => {
                 files_list = json_response.tree;
+                if(ORDER_NEW_POSTS_FIRST)files_list.reverse();
                 let list = document.createElement("ul");
                 // show posts from oldest to newest
-                for (let i = files_list.length - 1; i >= 0; i--) {
+                for (let i = 0; i < files_list.length; i++) {
                     const element = files_list[i];
                     if(element.path.includes("posts/")){
                         let li = document.createElement('li');
@@ -66,7 +80,7 @@ function reload_page(){
                         let slug = file_name.replace(".md","");
                         let a = document.createElement('a');
                         a.innerText = slug_to_title(slug);
-                        a.setAttribute("href", BLOG_URL + "#!" + slug)
+                        a.setAttribute("href", BLOG_URL + "#!" + slug);
                         li.appendChild(a);
                         list.appendChild(li);
                     }
@@ -79,13 +93,16 @@ function reload_page(){
                 document.getElementById('content').innerHTML = div.innerHTML;
             });
     }
-        
     
+    // Highlight code if Prismjs is loaded
+    if (typeof window.Prism !== "undefined") {
+        setTimeout(window.Prism.highlightAll,1000);
+    }
 }
 
 window.addEventListener('popstate', function (event) {
     reload_page();
 });
 
-reload_page()
+reload_page();
 
